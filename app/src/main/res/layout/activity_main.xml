@@ -1,18 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.luisgarfias.project3.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/instructions" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make sure to change this ********" />
+
+        <TextView
+            android:id="@+id/question_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/min_padding"
+            android:text="@string/question_1" />
+
+        <RadioGroup
+            android:id="@+id/ans_group_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/position_1_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_1_1" />
+
+            <RadioButton
+                android:id="@+id/position_1_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_1_2" />
+
+            <RadioButton
+                android:id="@+id/position_1_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_1_3" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/min_padding"
+            android:text="@string/question_2" />
+
+
+        <RadioGroup
+            android:id="@+id/ans_group_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/position_2_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_2_1" />
+
+            <RadioButton
+                android:id="@+id/position_2_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_2_2" />
+
+            <RadioButton
+                android:id="@+id/position_2_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_2_3" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/question_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/min_padding"
+            android:text= "@string/question_3" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/position_3_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text= "@string/ans_3_1" />
+
+            <RadioButton
+                android:id="@+id/position_3_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_3_2" />
+
+            <RadioButton
+                android:id="@+id/position_3_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="test"
+                android:text="@string/ans_3_3" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <CheckBox
+                android:id="@+id/email_results"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Results"
+                android:onClick="sendEmailWithResults"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

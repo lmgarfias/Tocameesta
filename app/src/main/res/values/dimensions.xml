@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="question_spacing">8dp</dimen>
+    <dimen name="margin_space">16dp</dimen>
+    <dimen name="question_text_size">12sp</dimen>
+    <dimen name="answer_text_size">8sp</dimen>
+    <dimen name="min_padding">12dp</dimen>
+    <dimen name="max_padding">24dp</dimen>
+
+
+</resources>
