@@ -15,11 +15,11 @@
             android:layout_height="wrap_content"
             android:text="@string/instructions" />
 
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Make sure to change this ********" />
+        <!--<TextView-->
+            <!--android:id="@+id/test_output_view"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Make sure to change this ********" />-->
 
         <TextView
             android:id="@+id/question_1"
@@ -31,27 +31,28 @@
         <RadioGroup
             android:id="@+id/ans_group_1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/min_padding">
 
             <RadioButton
                 android:id="@+id/position_1_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked1"
                 android:text="@string/ans_1_1" />
 
             <RadioButton
                 android:id="@+id/position_1_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked1"
                 android:text="@string/ans_1_2" />
 
             <RadioButton
                 android:id="@+id/position_1_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked1"
                 android:text="@string/ans_1_3" />
 
         </RadioGroup>
@@ -68,27 +69,29 @@
         <RadioGroup
             android:id="@+id/ans_group_2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/min_padding">
+
 
             <RadioButton
                 android:id="@+id/position_2_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked2"
                 android:text="@string/ans_2_1" />
 
             <RadioButton
                 android:id="@+id/position_2_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked2"
                 android:text="@string/ans_2_2" />
 
             <RadioButton
                 android:id="@+id/position_2_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked2"
                 android:text="@string/ans_2_3" />
 
         </RadioGroup>
@@ -98,56 +101,98 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/min_padding"
-            android:text= "@string/question_3" />
+            android:text="@string/question_3" />
 
         <RadioGroup
+            android:id="@+id/ans_group_3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/min_padding">
+
 
             <RadioButton
                 android:id="@+id/position_3_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
-                android:text= "@string/ans_3_1" />
+                android:onClick="onRadioButtonClicked3"
+                android:text="@string/ans_3_1" />
 
             <RadioButton
                 android:id="@+id/position_3_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked3"
                 android:text="@string/ans_3_2" />
 
             <RadioButton
                 android:id="@+id/position_3_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="test"
+                android:onClick="onRadioButtonClicked3"
                 android:text="@string/ans_3_3" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/question_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/min_padding"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/question_4" />
+
+        <CheckBox
+            android:id="@+id/option_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/ans_4_1"
+            android:paddingLeft="@dimen/min_padding" />
+
+        <CheckBox
+            android:id="@+id/option_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/ans_4_2"
+            android:paddingLeft="@dimen/min_padding" />
+
+        <CheckBox
+            android:id="@+id/option_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/ans_4_3"
+            android:paddingLeft="@dimen/min_padding"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:layout_margin="@dimen/min_padding">
 
 
             <Button
+                android:id="@+id/reset_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
+                android:onClick="resetAnswers"
+                android:text="@string/reset_button" />
 
             <CheckBox
                 android:id="@+id/email_results"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email Results"
-                android:onClick="sendEmailWithResults"/>
+                android:paddingRight="@dimen/min_padding"
+                android:text="@string/email_results" />
 
             <Button
+                android:id="@+id/submit_results"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:onClick="submitAnswers"
+                android:text="@string/submit_answer" />
 
         </LinearLayout>
 
