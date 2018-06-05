@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     //Onpause:I will be helping out with basic Lifecycle, Saved Instance State and the basics of AsyncTaskLoader.
 
 
@@ -29,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        CheckBox option1 = (CheckBox) findViewById(R.id.option_1);
+        CheckBox option2 = (CheckBox) findViewById(R.id.option_2);
+        CheckBox option3 = (CheckBox) findViewById(R.id.option_3);
+
+        EditText userNameText = (EditText) findViewById(R.id.user_name_view);
+        String userName = userNameText.getText().toString();
+
     }
 
     public void submitAnswers(View view) {
@@ -44,10 +53,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
         CheckBox emailCheckBox = (CheckBox) findViewById(R.id.email_results);
         boolean checkEmailResults = emailCheckBox.isChecked();
+
 
         if (checkEmailResults) {
             toastMessage(rightAnswersCountTotal);
@@ -167,6 +175,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void resetName(View view){
+
+
+    }
+
     public void resetAnswers(View view) {
         RadioGroup radioGroup1 = (RadioGroup) findViewById(R.id.ans_group_1);
         radioGroup1.clearCheck();
@@ -182,12 +195,13 @@ public class MainActivity extends AppCompatActivity {
         option3.setChecked(false);
         CheckBox emailCheckBox = (CheckBox) findViewById(R.id.email_results);
         emailCheckBox.setChecked(false);
-
-
+        EditText userNameText = (EditText) findViewById(R.id.user_name_view);
+        userNameText.setText("");
         rightAnswerCount1 = false;
         rightAnswerCount2 = false;
         rightAnswerCount3 = false;
         rightAnswersCountTotal = 0;
+
     }
 
 }
