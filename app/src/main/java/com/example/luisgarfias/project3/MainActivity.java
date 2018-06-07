@@ -1,5 +1,4 @@
 package com.example.luisgarfias.project3;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,21 +18,10 @@ public class MainActivity extends AppCompatActivity {
     boolean rightAnswerCount2 = false;
     boolean rightAnswerCount3 = false;
 
-
-
-
-
-
-    //Onpause:I will be helping out with basic Lifecycle, Saved Instance State and the basics of AsyncTaskLoader.
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CheckBox option1 = (CheckBox) findViewById(R.id.option_1);
-        CheckBox option2 = (CheckBox) findViewById(R.id.option_2);
-        CheckBox option3 = (CheckBox) findViewById(R.id.option_3);
 
         EditText userNameText = (EditText) findViewById(R.id.user_name_view);
         String userName = userNameText.getText().toString();
@@ -52,16 +40,13 @@ public class MainActivity extends AppCompatActivity {
             rightAnswersCountTotal += 1;
         }
 
-
         CheckBox emailCheckBox = (CheckBox) findViewById(R.id.email_results);
         boolean checkEmailResults = emailCheckBox.isChecked();
-
 
         if (checkEmailResults) {
             toastMessage(rightAnswersCountTotal);
             sendEmailWithResults();
             rightAnswersCountTotal = 0;
-
 
         } else {
             toastMessage(rightAnswersCountTotal);
@@ -76,12 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
         intent.putExtra(Intent.EXTRA_SUBJECT, "Practice Test results ");
-        intent.putExtra(Intent.EXTRA_TEXT, "Practice Test results ");
+        intent.putExtra(Intent.EXTRA_TEXT, "Practice Test");
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
     }
-
 
     public void onRadioButtonClicked1(View view) {
         // Is the button now checked?
@@ -101,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 if (checked)
                     rightAnswerCount1 = true;
                 break;
-
 
         }
     }
@@ -125,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
                     rightAnswerCount2 = false;
                 break;
 
-
         }
     }
 
@@ -133,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
         // Is the button now checked?
 
         boolean checked = ((RadioButton) view).isChecked();
-
 
         // Check which radio button was clicked
         switch (view.getId()) {
@@ -149,20 +130,17 @@ public class MainActivity extends AppCompatActivity {
                 if (checked)
                     rightAnswerCount3 = false;
                 break;
-
-
         }
     }
 
     public void onCheckboxClicked(View view) {
         CheckBox option1 = (CheckBox) findViewById(R.id.option_1);
         CheckBox option2 = (CheckBox) findViewById(R.id.option_2);
-        CheckBox option3 = (CheckBox) findViewById(R.id.option_3);
-        if(option1.isChecked() && option2.isChecked()) {
+        if (option1.isChecked() && option2.isChecked()) {
 
             rightAnswersCountTotal += 1;
         }
-        }
+    }
 
     private void toastMessage(int score) {
 
@@ -171,12 +149,6 @@ public class MainActivity extends AppCompatActivity {
         int duration = Toast.LENGTH_LONG;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-
-
-    }
-
-    public void resetName(View view){
-
 
     }
 
@@ -201,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         rightAnswerCount2 = false;
         rightAnswerCount3 = false;
         rightAnswersCountTotal = 0;
-
     }
 
 }
