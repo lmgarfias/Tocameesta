@@ -1,7 +1,11 @@
 package com.example.luisgarfias.tocameesta;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,7 +22,7 @@ public class ListOfSongs extends AppCompatActivity {
 
         Toast.makeText(ListOfSongs.this, selectedGenre, Toast.LENGTH_SHORT).show();
 
-        final ArrayList<Song> listOfSongs = new ArrayList<Song>();
+        final ArrayList<Song> listOfSongs = new ArrayList<>();
 
         // All HIPHOP songs
         listOfSongs.add(new Song("Puto", "Molotov", "", Song.Genre.HIPHOP));
@@ -61,8 +65,23 @@ public class ListOfSongs extends AppCompatActivity {
         }
 
         SongAdapter itemAdapter = new SongAdapter(this, songsSelected);
-        ListView listView = (ListView) findViewById(R.id.list_of_songs);
-        listView.setAdapter(itemAdapter);
+        ListView songListView = findViewById(R.id.list_of_songs);
+        songListView.setAdapter(itemAdapter);
+        // When Clicking on the song to be played
+
+        songListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                        @Override
+                                        public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
+
+                                            Song songToPlay = songsSelected.get(index);
+                                            Intent genreToSong = new Intent(ListOfSongs.this, NowPlaying.class);
+
+                                            //Pass the Song name string selected
+                                            genreToSong.putExtra("uniqueString", songToPlay.getmSongName());
+                                            startActivity(genreToSong);
+                                        }
+                                    }
+        );
+
     }
 }
-
