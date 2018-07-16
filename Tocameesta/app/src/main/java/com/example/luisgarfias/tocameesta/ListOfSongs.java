@@ -18,7 +18,7 @@ public class ListOfSongs extends AppCompatActivity {
 
         Toast.makeText(ListOfSongs.this, selectedGenre, Toast.LENGTH_SHORT).show();
 
-        final ArrayList<Song> listOfSongs = new ArrayList<Song>(4);
+        final ArrayList<Song> listOfSongs = new ArrayList<Song>();
 
         // All HIPHOP songs
         listOfSongs.add(new Song("Puto", "Molotov", "", Song.Genre.HIPHOP));
@@ -27,7 +27,7 @@ public class ListOfSongs extends AppCompatActivity {
         listOfSongs.add(new Song("Dormir Soñando", "El Gran Silencio", "", Song.Genre.HIPHOP));
 
         //ALL Rock songs
-        listOfSongs.add(new Song("Afuera", "Caifanes", "", Song.Genre.ROCK);)
+        listOfSongs.add(new Song("Afuera", "Caifanes", "", Song.Genre.ROCK));
         listOfSongs.add(new Song("Ingrata", "Café Tacvba", "", Song.Genre.ROCK));
         listOfSongs.add(new Song("Oye mi Amor", "Maná", "", Song.Genre.ROCK));
         listOfSongs.add(new Song("En la Ciudad de la Furia", "Soda Stereo", "", Song.Genre.ROCK));
@@ -51,7 +51,18 @@ public class ListOfSongs extends AppCompatActivity {
         listOfSongs.add(new Song("Tragos Amargos", "Ramon Ayala y sus Bravos del Norte", "", Song.Genre.RANCHERAS));
 
 /* Create a new list filtering the genre selected*/
-//TODO create a custom adapter
+        final ArrayList<Song> songsSelected = new ArrayList<>(4);
 
+        for (int i = 0; i < listOfSongs.size(); i++) {
+
+            if (listOfSongs.get(i).getmGenre().toString().contains(selectedGenre)) {
+                songsSelected.add(listOfSongs.get(i));
+            }
+        }
+
+        SongAdapter itemAdapter = new SongAdapter(this, songsSelected);
+        ListView listView = (ListView) findViewById(R.id.list_of_songs);
+        listView.setAdapter(itemAdapter);
     }
 }
+
